@@ -11,16 +11,16 @@ import { VehiculeService } from '../vehicule.service';
 })
 export class VehiculeComponent {
   vehicules: Vehicule[] = [];
-  selectedVehicule?: Vehicule;
+
   constructor(private vehiculeService: VehiculeService){   
   }
+
   ngOnInit(): void{
     this.getVehicules();
   }
+
   getVehicules(): void{
     this.vehiculeService.getVehicules().subscribe(vehicules => this.vehicules = vehicules);
   }
-  showDetails(vehicule: Vehicule): void {
-    this.selectedVehicule = vehicule;
-  }
+  
 }

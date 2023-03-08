@@ -1,3 +1,5 @@
 export interface Vehicule {
-    name: string;
+    id: string;
+    County: string;
+    City: string;
 }

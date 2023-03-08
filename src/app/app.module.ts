@@ -7,6 +7,8 @@ import { VehiculeDetailsComponent } from './vehicule-details/vehicule-details.co
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
