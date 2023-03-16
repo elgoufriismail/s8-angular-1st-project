@@ -3,7 +3,7 @@
 <p class="card-description"> Add class <code>.table-bordered</code>
 </p>
 <div class="table-responsive">
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered">
     <thead>
         <tr>
         <th> # </th>
@@ -11,15 +11,25 @@
         <th> Progress </th>
         <th> Amount </th>
         <th> Deadline </th>
+        <th> OP </th>
+
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let vehicule of vehicules" routerLink="/details/{{vehicule.id}}">
+        <tr *ngFor="let vehicule of vehicules" routerLink="/details/{{vehicule._id}}/detail">
             <td> 1 </td>
-            <td> {{vehicule.id}} </td>
+            <td> {{vehicule._id}} </td>
             <td> {{vehicule.County}} </td>
             <td> {{vehicule.City}} </td>
             <td> May 15, 2015 </td>
+            <td>
+                <i >
+                    <img src="/assets/images/icons8-supprimer-30.png"  (click)="deleteClick($event,vehicule._id!)" alt="" srcset="">
+                </i>
+                <i routerLink="/details/{{vehicule._id}}/edit" (click)="editClick($event)">
+                    <img src="/assets/images/icons8-edit-48.png" alt="" srcset="">
+                </i>
+            </td>
         </tr>
     </tbody>
     </table>

@@ -8,7 +8,8 @@ const routes: Routes = [
   {path: 'vehicules', component: VehiculeComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
-  {path: 'details/:id', component: VehiculeDetailsComponent}
+  {path: 'details/:id/:op', component: VehiculeDetailsComponent},
+  {path: 'create', component: VehiculeDetailsComponent}
 ];
 
 @NgModule({
@@ -20,4 +21,5 @@ const routes: Routes = [
     RouterModule
   ]
 })
+
 export class AppRoutingModule { }

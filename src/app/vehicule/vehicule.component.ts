@@ -22,5 +22,13 @@ export class VehiculeComponent {
   getVehicules(): void{
     this.vehiculeService.getVehicules().subscribe(vehicules => this.vehicules = vehicules);
   }
+  editClick(e:Event): void{
+    e.stopPropagation();
+  }
+  deleteClick(e:Event, id:string): void{
+    e.stopPropagation();
+    this.vehiculeService.deleteVehicule(id)
+    this.getVehicules();
+  }
   
 }
