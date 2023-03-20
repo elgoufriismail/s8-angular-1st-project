@@ -1,7 +1,9 @@
 
-<h4 class="card-title">Bordered table</h4>
-<p class="card-description"> Add class <code>.table-bordered</code>
-</p>
+
+<form class="form-inline my-2 my-lg-0" onsubmit="return false;">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" #filterCity>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="filerVehiculesByCity(filterCity.value)">Search</button>
+  </form>
 <div class="table-responsive">
     <table class="table table-bordered">
     <thead>
@@ -16,7 +18,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let vehicule of vehicules" routerLink="/details/{{vehicule._id}}/detail">
+        <tr *ngFor="let vehicule of vehicules | paginate: config"  routerLink="/details/{{vehicule._id}}/detail">
             <td> 1 </td>
             <td> {{vehicule._id}} </td>
             <td> {{vehicule.County}} </td>
@@ -34,3 +36,26 @@
     </tbody>
     </table>
 </div>
+
+<pagination-template #p="paginationApi"
+                     (pageChange)="config.currentPage = $event">
+
+    <div class="ui pagination menu inverted">
+            <a *ngIf="!p.isFirstPage()" class="item" [class.disabled]="p.isFirstPage()" (click)="p.previous()"> 
+                <
+            </a>
+
+
+        <ng-container *ngFor="let page of p.pages">
+            <a (click)="p.setCurrent(page.value)" class="item" [class.active]="p.getCurrent() === page.value">
+                {{ page.label }}
+            </a>
+        </ng-container>
+
+
+            <a *ngIf="!p.isLastPage()" class="item" (click)="p.next()" [class.disabled]="p.isLastPage()">
+                >
+            </a>
+    </div>
+
+</pagination-template>

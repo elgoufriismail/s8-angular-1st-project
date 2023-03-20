@@ -40,8 +40,7 @@ export class VehiculeDetailsComponent {
     City = City.trim()
     this.vehiculeService.updateVehicule({_id, County, City}).subscribe(_=> this.location.back())
   }
-
-
+  
 }
 
 
