@@ -49,11 +49,13 @@ export class VehiculeComponent {
   editClick(e:Event): void{
     e.stopPropagation();
   }
+
   deleteClick(e:Event, id:string): void{
+    console.log("smail.com");
     e.stopPropagation();
-    this.vehiculeService.deleteVehicule(id)
+    this.vehiculeService.deleteVehicule(id).subscribe(_=>{
+      console.log("smail");
+    });
     this.getVehicules();
   }
-
-//smail elgoufir
 }

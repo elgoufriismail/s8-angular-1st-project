@@ -44,11 +44,11 @@ export class VehiculeService {
     this.vehiculesUrl = 'http://localhost:3000/api/vehiculesById/sm'
     return this.http.post<Vehicule>(this.vehiculesUrl,body,this.httpOptions);
   }
-  deleteVehicule(id: string): void{
+  deleteVehicule(id: string): Observable<Vehicule>{
     const body = new URLSearchParams();
     body.set('id', id);
     this.vehiculesUrl = 'http://localhost:3000/api/vehicules/delete';
-    this.http.post(this.vehiculesUrl,body,this.httpOptions)
+    return this.http.post<Vehicule>(this.vehiculesUrl,body,this.httpOptions)
   }
 }
 
