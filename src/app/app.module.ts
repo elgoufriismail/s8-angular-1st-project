@@ -10,6 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgChartsModule } from 'ng2-charts';
 
 
 
@@ -24,7 +25,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
