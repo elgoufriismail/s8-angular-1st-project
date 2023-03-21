@@ -30,7 +30,6 @@ export class VehiculeComponent {
   getVehicules(): void{
     this.vehiculeService.getVehicules().subscribe(vehicules => {
       this.vehicules = vehicules
-      console.log(this.vehicules);
       this.cdr.detectChanges();
     });
   }
